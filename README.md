@@ -23,6 +23,13 @@ Provides easy access to algorithm descriptions
 
 3. Preferred to have virtual env, more info [here](https://realpython.com/python-virtual-environments-a-primer/)<br><br>
 
+## Running Bot Locally
+1. Run `python main.py` (or `python3 main.py` according to your python version)
+
+2. Test your bots locally, it will not affect the production code
+
+3. Note: Am not sure if two locally running bots of the same entity will cause any hoo-ha or not, you can try and lmk<br><br>
+
 ## Pulling Code
 1. Go to main branch and `git pull`<br>
 
