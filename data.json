@@ -1,0 +1,82 @@
+[
+    {
+        "algo_type": "Sorting",
+        "algo_subtype": [
+            {
+                "algo_subtype_name": "Comparison based Sorting",
+                "algos": [
+                    {
+                        "algo_name": "Selection Sort",
+                        "algo_desc": [
+                            "Start with i = 0, in an array in size of N",
+                            "choose the minimum/maximum element in array[i…N] and swap the regarding element with array[i] and increment i in every loop",
+                            "It will terminate when i = N - 1 as there is only 1 element left in the list and no swap is required anymore"
+                        ],
+                        "algo_props": [
+                            {
+                                "algo_props_title": "Stable? NO!",
+                                "algo_props_desc": [
+                                    "Swapping element might affect the sequence of other elements in the future comparison (side effect)"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "Online? NO!",
+                                "algo_props_desc": [
+                                    "Every time we add new element we still need to rerun the whole algorithm again"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "In-place? YES!",
+                                "algo_props_desc": [
+                                    "It always performs the traversal and swapping within the array"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "In-place? YES!",
+                                "algo_props_desc": [
+                                    "It always performs the traversal and swapping within the array"
+                                ]
+                            }
+                        ],
+                        "algo_complexity": {
+                            "time": [
+                                "Best = Worst, O(N^2)"
+                            ],
+                            "aux_space": [
+                                "O(1)"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "algo_subtype_name": "Non-comparison based Sorting",
+                "algos": []
+            }
+        ]
+    },
+    {
+        "algo_type": "Searching",
+        "algos": [
+            {
+                "algo_name": "Binary Search",
+                "algo_desc": [
+                    "search in more efficient way",
+                    "only works on sorted list of elements"
+                ],
+                "algo_props": [
+                    {
+                        "algo_props_title": "How it works",
+                        "algo_props_desc": "it makes uses of the properties of A < B < C, if target is between A and B, then C is no longer important"
+                    }
+                ],
+                "algo_complexity": {
+                    "time": [
+                        "Best: O(1)",
+                        "Worst: O(log N)"
+                    ]
+                }
+            }
+        ]
+    }
+]
