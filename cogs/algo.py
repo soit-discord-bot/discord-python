@@ -71,6 +71,14 @@ class Algorithm(commands.Cog):
         algoEmbed = discord.Embed(title=title, description=sub_name, color=0x00ff00)
         algoEmbed.add_field(name="Description\n", value=description, inline=False)
 
+        algo_props = algorithm['algo_props']
+        for i in range(len(algo_props)):
+            algoEmbed.add_field(name=algo_props[i]['algo_props_title'], value=algo_props[i]['algo_props_desc'][0], inline=False)
+
+        algo_complexity = algorithm['algo_complexity']
+        algoEmbed.add_field(name="Algorithm Time Compelxity", value=algo_complexity['time'][0], inline=False)
+        algoEmbed.add_field(name="Algorithm Space Complexity", value=algo_complexity['aux_space'][0], inline=False)
+
         # Sends Embed
         await ctx.channel.send(embed=algoEmbed)
 
@@ -91,6 +99,13 @@ class Algorithm(commands.Cog):
         # Creates Embed
         algoEmbed = discord.Embed(title=title, description=title, color=0x00ff00)
         algoEmbed.add_field(name="Description\n", value=description, inline=False)
+
+        algo_props = algorithm['algo_props']
+        for i in range(len(algo_props)):
+            algoEmbed.add_field(name=algo_props[i]['algo_props_title'], value=algo_props[i]['algo_props_desc'], inline=False)
+
+        algo_complexity = algorithm['algo_complexity']
+        algoEmbed.add_field(name="Algorithm Time Compelxity", value=algo_complexity['time'][0], inline=False)
 
         # Sends Embed
         await ctx.channel.send(embed=algoEmbed)

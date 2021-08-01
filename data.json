@@ -16,25 +16,25 @@
                             {
                                 "algo_props_title": "Stable? NO!",
                                 "algo_props_desc": [
-                                    "Swapping element might affect the sequence of other elements in the future comparison (side effect)"
+                                    "Swapping element might affect the sequence of other elements in the future comparison (side effect)\n"
                                 ]
                             },
                             {
                                 "algo_props_title": "Online? NO!",
                                 "algo_props_desc": [
-                                    "Every time we add new element we still need to rerun the whole algorithm again"
+                                    "Every time we add new element we still need to rerun the whole algorithm again\n"
                                 ]
                             },
                             {
                                 "algo_props_title": "In-place? YES!",
                                 "algo_props_desc": [
-                                    "It always performs the traversal and swapping within the array"
+                                    "It always performs the traversal and swapping within the array\n"
                                 ]
                             },
                             {
                                 "algo_props_title": "In-place? YES!",
                                 "algo_props_desc": [
-                                    "It always performs the traversal and swapping within the array"
+                                    "It always performs the traversal and swapping within the array\n"
                                 ]
                             }
                         ],
