@@ -13,7 +13,7 @@ class Algorithm(commands.Cog):
         """
         await ctx.send(f'Pong! {round(self.client.latency * 1000)}ms')
 
-    @commands.command(aliases = ['algo', 'algorithm', 'algos', 'al'])
+    @commands.command(aliases = ['algo', 'algorithm'])
     async def _algoType(self, ctx, *, request):
         """
         Checks if Algorithm has a Sub Type and sends respective embed
