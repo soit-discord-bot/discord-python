@@ -13,44 +13,46 @@ class Algorithm(commands.Cog):
         """
         await ctx.send(f'Pong! {round(self.client.latency * 1000)}ms')
 
-    @commands.command(aliases = ['algo', 'algorithm', 'algos'])
+    @commands.command(aliases = ['algo', 'algorithm', 'algos', 'al'])
     async def _algoType(self, ctx, *, request):
         """
         Checks if Algorithm has a Sub Type and sends respective embed
         """
         # Loads Json File
-        f = open('data.json',)
+        f = open('data_final.json',)
         data = json.load(f)
 
         # Separating Algorithms with their presence of subtypes
-        algo_types = ['searching']
-        algo_sub_types = ['sorting']
+        others = ['binary', 'bfs', 'dfs', 'dijkstra', 'bellman', 'floyd', 'prim', 'kruskal']
 
         # Checks if Algorithm is a Sub Type
-        if request.lower() in algo_types:
+        if request.lower() in others:
 
             # if Algorithm has no sub types, sets appropriate json hierachy
-            for i in range(len(data)):
-                if data[i]['algo_type'].lower() == request.lower():
+            for i in range(1, len(data)):
+                for j in range(len(data[i]['algos'])):
+                    if request.lower() in data[i]['algos'][j]['algo_name'].lower():
 
-                    # Sets Algorithm
-                    algorithm = data[i]['algos'][0]
+                        # Sets Algorithm
+                        algorithm = data[i]['algos'][j]
 
-                    # Calls Embed Creation Function
-                    await ctx.invoke(self.client.get_command('algoSend2'), algorithm=algorithm)
+                        # Calls Embed Creation Function
+                        await ctx.invoke(self.client.get_command('algoSend2'), algorithm=algorithm)
 
-        elif request.lower() in algo_sub_types:
+        elif request.lower() not in others:
 
             # if Algorithm has sub types, sets appropriate json hierachy
-            for i in range(len(data)):
-                if data[i]['algo_type'].lower() == request.lower():
+            for i in range(len(data[0]['algo_subtype'])):
+                for j in range(len(data[0]['algo_subtype'][i]['algos'])):
 
-                    # Sets Algorithm Sub Type and Algorithm
-                    algorithm = data[i]['algo_subtype'][0]['algos'][0]
-                    sub_name = data[i]['algo_subtype'][0]['algo_subtype_name']
+                    if request.lower() in data[0]['algo_subtype'][i]['algos'][j]['algo_name'].lower():
 
-                    # Calls Embed Creation Function
-                    await ctx.invoke(self.client.get_command('algoSend'), algorithm=algorithm, sub_name=sub_name)
+                        # Sets Algorithm Sub Type and Algorithm
+                        algorithm = data[0]['algo_subtype'][i]['algos'][j]
+                        sub_name = data[0]['algo_subtype'][i]['algo_subtype_name']
+
+                        # Calls Embed Creation Function
+                        await ctx.invoke(self.client.get_command('algoSend'), algorithm=algorithm, sub_name=sub_name)
 
 
     @commands.command()

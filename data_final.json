@@ -1,0 +1,484 @@
+[
+    {
+        "algo_type": "Sorting",
+        "algo_subtype": [
+            {
+                "algo_subtype_name": "Comparison based Sorting",
+                "algos": [
+                    {
+                        "algo_name": "Selection Sort",
+                        "algo_desc": [
+                            "Start with i = 0, in an array in size of N",
+                            "choose the minimum/maximum element in array[i…N] and swap the regarding element with array[i] and increment i in every loop",
+                            "It will terminate when i = N - 1 as there is only 1 element left in the list and no swap is required anymore"
+                        ],
+                        "algo_props": [
+                            {
+                                "algo_props_title": "Stable? NO!",
+                                "algo_props_desc": [
+                                    "Swapping element might affect the sequence of other elements in the future comparison (side effect)\n"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "Online? NO!",
+                                "algo_props_desc": [
+                                    "Every time we add new element we still need to rerun the whole algorithm again\n"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "In-place? YES!",
+                                "algo_props_desc": [
+                                    "It always performs the traversal and swapping within the array\n"
+                                ]
+                            }
+                        ],
+                        "algo_complexity": {
+                            "time": [
+                                "Best = Worst, O(N^2)"
+                            ],
+                            "aux_space": [
+                                "O(1)"
+                            ]
+                        }
+                    },
+                    {
+                        "algo_name": "Insertion Sort",
+                        "algo_desc": [
+                            "Start with i = 1, in an array in size of N",
+                            "Swap the element at ith to maintain the increasing/decreasing order of array[0…i]",
+                            "It can be terminate earlier when i is smaller/bigger than (i-1)th",
+                            "It will terminate when i = N which means there is no element in the array now"
+                        ],
+                        "algo_props": [
+                            {
+                                "algo_props_title": "Stable? YES! ",
+                                "algo_props_desc": [
+                                    "Every comparing step always make sure that (i-1)th element is smaller/bigger than ith element",
+                                    "If no swapping in every step which means the array is sorted, it will still maintain the stability"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "Online? Another YES!",
+                                "algo_props_desc": [
+                                    "Assume that insertion sort is done on the current array, when we add additional element E into the array,  the element only needs to slot it into the back or front of the array. Then, we only focus E until the array is in order and it can be done within one loop and exit in the next"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "In-place? Another YES!",
+                                "algo_props_desc": [
+                                    "It always performs the swapping and comparing in the array"
+                                ]
+                            }
+                        ],
+                        "algo_complexity": {
+                            "time": [
+                                "Best: O(N), when the array is sorted and no swap is required",
+                                "Worst: O(N^2)"
+                            ],
+                            "aux_space": [
+                                "O(1)"
+                            ]
+                        }
+                    },
+                    {
+                        "algo_name": "Bubble Sort",
+                        "algo_desc": [
+                            "Similar methodology as Insertion Sort, functioning like the property of a bubble",
+                            "Start with i =  0, in an array in size of N",
+                            "In every loop, it compare the element at i th and (i + 1) th, if smaller/larger, perform swap",
+                            "Can we terminate earlier? YES! In Bubble Sort 2, we can terminate earlier by checking \"is any swapping happen\" in the particular loop. If no swapping happen, then exit and the array is sorted"
+                        ],
+                        "algo_props": [
+                            {
+                                "algo_props_title": "Stable? YES!",
+                                "algo_props_desc": [
+                                    "The comparison is the key to make it stable. Swapping is not perform when i th element is same as (i + 1) th element ensure the stability of bubble sort"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "Online? Another YES!",
+                                "algo_props_desc": [
+                                    "Assume that bubble sort 2 is done on the current array, when we add additional element E into the array,  the element only needs to slot it into the back or front of the array. Then, we only focus E until the array is in order and it can be done within one loop and exit in the next loop"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "In-place? Another YES!",
+                                "algo_props_desc": [
+                                    "The swapping step only happens within the array itself"
+                                ]
+                            }
+                        ],
+                        "algo_complexity": {
+                            "time": [
+                                "Best: O(N^2), O(N) with Bubble Sort 2",
+                                "Worst: O(N^2)"
+                            ],
+                            "aux_space": [
+                                "O(1)"
+                            ]
+                        }
+                    },
+                    {
+                        "algo_name": "Merge Sort",
+                        "algo_desc": [
+                            "Divide and Conquer",
+                            "In an array in size of N",
+                            "First, it will divide the array into half until the segments are small enough (size 1)",
+                            "Then, when combining the segments by comparing the elements in two segment"
+                        ],
+                        "algo_props": [
+                            {
+                                "algo_props_title": "Stable? YES!",
+                                "algo_props_desc": [
+                                    "In the combining step, we always prioritize the segment at the front so the stability is maintained"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "Online? NO!",
+                                "algo_props_desc": [
+                                    "Every time we add new element we still need to rerun the whole algorithm again"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "In-place? NO!",
+                                "algo_props_desc": [
+                                    "Every time we need to divide the array into half, we need to generate two new array in size of N/2",
+                                    "After the merge sort is done, we will replace all the elements in the original array by the sorted array"
+                                ]
+                            }
+                        ],
+                        "algo_complexity": {
+                            "time": [
+                                "Best = Worst, O(N log N)"
+                            ],
+                            "aux_space": [
+                                "O(N)",
+                                "to store the sorted array",
+                                "to store the divided segments",
+                                "the recursive stack as we do it in recursive way"
+                            ]
+                        }
+                    },
+                    {
+                        "algo_name": "Quick Sort",
+                        "algo_desc": [
+                            "Divide and Conquer",
+                            "Have similar methodology as merge sort, in an array in size of N",
+                            "Divide the array into two portions however now the dividing step depends on the pivot chosen",
+                            "In addition, the combining step no longer need any comparison as it is done in the dividing step"
+                        ],
+                        "algo_props": [
+                            {
+                                "algo_props_title": "Stable? NO!",
+                                "algo_props_desc": [
+                                    "It doesn't promise that the picot chosen doesn't have any duplicate before and after the original position of the pivot or even break the stability when swapping to pivot to position 0",
+                                    "Can we make it stable? CAN!",
+                                    "With extra space, by introducing a new storage space to store the position information of the element and do extra checking when making decision"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "Online? NO!",
+                                "algo_props_desc": [
+                                    "Every time we add new element we still need to rerun the whole algorithm again"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "In-place? NO!",
+                                "algo_props_desc": [
+                                    "Every time we need to divide the array based on the position of pivot, we need to generate two new array for the divided segments"
+                                ]
+                            }
+                        ],
+                        "algo_complexity": {
+                            "time": [
+                                "Best: O(N), apply quicksort with the assistance of DNF and all the elements in the array are the same",
+                                "Average: O(N log N)",
+                                "Worst: O(N^2), extreme case like the pivot is always at the start/end of the array..."
+                            ],
+                            "aux_space": [
+                                "O(N)",
+                                "to store the sorted array",
+                                "to store the divided segments",
+                                "the recursive stack as we do it recursively"
+                            ]
+                        }
+                    },
+                    {
+                        "algo_name": "Heap Sort",
+                        "algo_desc": [
+                            "Heap Data Structure",
+                            "Using the properties of a heap to ensure the sequence of the element",
+                            "Insert all the elements in the input array into the heap",
+                            "Then, pop the element from the heap and replace the element in i th position until the heap is empty"
+                        ],
+                        "algo_props": [
+                            {
+                                "algo_props_title": "Stable? NO!",
+                                "algo_props_desc": [
+                                    "When we retrieve the element at the top of the heap, we need to swap it with the bottom element of the heap. When the target element has duplicates in the heap, then this step will break its stability",
+                                    "When we sink or rise the element, it will also affect the stability due to the choice of element to swap"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "Online? NO!",
+                                "algo_props_desc": [
+                                    "Every time we add new element we still need to rerun the whole algorithm again"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "In-place? Yes!",
+                                "algo_props_desc": [
+                                    "Heap sort can be performed directly on the input array "
+                                ]
+                            }
+                        ],
+                        "algo_complexity": {
+                            "time": [
+                                "Best = Worse, O(N log N)"
+                            ],
+                            "aux_space": [
+                                "O(N)",
+                                "the heap allocate space"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "algo_subtype_name": "Non-comparison based Sorting",
+                "algos": [
+                    {
+                        "algo_name": "Counting Sort",
+                        "algo_desc": [
+                            "Work for numeric value",
+                            "Perform sorting by grouping elements together",
+                            "Can do by counting the occurrence (counting array/occurrence array) OR grouping them (bucket array)"
+                        ],
+                        "algo_props": [
+                            {
+                                "algo_props_title": "Stable? YES!",
+                                "algo_props_desc": [
+                                    "We can always ensure the sequence when we make sure the insert and retrieve in sequence"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "Online? NO!",
+                                "algo_props_desc": [
+                                    "We are using the occurrence of the elements to perform counting sort. If we add new elements, means occurrence number is changed in the array. We need to perform the whole thing again."
+                                ]
+                            },
+                            {
+                                "algo_props_title": "In-place? NO!",
+                                "algo_props_desc": [
+                                    "We always need to introduce another storage to keep track of the occurrence of the elements"
+                                ]
+                            }
+                        ],
+                        "algo_complexity": {
+                            "time": [
+                                "O(N + M) where N is the number of elements and M is the range of element"
+                            ],
+                            "aux_space": [
+                                "O(M) when using occurrence array, O(N + M) when using bucket array"
+                            ]
+                        }
+                    },
+                    {
+                        "algo_name": "Radix Sort",
+                        "algo_desc": [
+                            "can be used to sort number in different base and string",
+                            "instead of using the whole element, it uses the radix of the element",
+                            "perform something similar as counting sort"
+                        ],
+                        "algo_props": [
+                            {
+                                "algo_props_title": "Stable? YES!",
+                                "algo_props_desc": [
+                                    "The bucket will store in sequence so every time retrieving the elements will be in sequence and the stability is maintained"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "Online? NO!",
+                                "algo_props_desc": [
+                                    "The sorting process is based on the radix of each number or character and will be done several time to ensure the sequence. So, we need to rerun the algorithm again"
+                                ]
+                            },
+                            {
+                                "algo_props_title": "In-place? NO!",
+                                "algo_props_desc": [
+                                    "We always need to introduce another storage to keep track of the occurrence of the elements"
+                                ]
+                            }
+                        ],
+                        "algo_complexity": {
+                            "time": [
+                                "Best = Worst, O(M * (N + b)), where N is the number of elements in the array and b is the base and M is the maximum value (numeric) or maximum length (string) of the element"
+                            ],
+                            "aux_space": [
+                                "O(MN + b)"
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "algo_type": "Searching",
+        "algos": [
+            {
+                "algo_name": "Binary Search",
+                "algo_desc": [
+                    "search in more efficient way",
+                    "only works on sorted list of elements"
+                ],
+                "algo_props": [
+                    {
+                        "algo_props_title": "How it works",
+                        "algo_props_desc": "it makes uses of the properties of A < B < C, if target is between A and B, then C is no longer important"
+                    }
+                ],
+                "algo_complexity": {
+                    "time": [
+                        "Best: O(1)",
+                        "Worst: O(log N)"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "algo_type": "Graph",
+        "algos": [
+            {
+                "algo_name": "Breadth-First Search (BFS)",
+                "algo_props": [],
+                "algo_desc": [
+                    "The basic graph algorithm",
+                    "Traverse in breadth",
+                    "Normally a queue (FIFO) is used",
+                    "Can be used on graph with unweighted/same-weighted edges",
+                    "Used to find the shortest path, find reachability, find cycle, ......"
+                ],
+                "algo_complexity": {
+                    "time": [
+                        "O(V + E)"
+                    ],
+                    "aux_space": [
+                        "O(V)"
+                    ]
+                }
+            },
+            {
+                "algo_name": "Depth-First Search (DFS)",
+                "algo_desc": [
+                    "The basic graph algorithm",
+                    "Traverse in depth",
+                    "Normally a stack (LIFO) is used",
+                    "Can be used on graph with unweighted/same-weighted edges",
+                    "Find cycle, ......"
+                ],
+                "algo_complexity": {
+                    "time": [
+                        "O(V + E)"
+                    ],
+                    "aux_space": [
+                        "O(V)"
+                    ]
+                }
+            },
+            {
+                "algo_name": "Dijkstra’s Algorithm",
+                "algo_desc": [
+                    "Better version of BFS - A BFS that using priority queue (heap)",
+                    "Used to find the shortest path with a min heap",
+                    "Start from one point",
+                    "A combination of DP and Greedy approach which makes it not able to handle negative edges in the graph"
+                ],
+                "algo_complexity": {
+                    "time": [
+                        "O(E log V)"
+                    ],
+                    "aux_space": [
+                        "O(E)"
+                    ]
+                }
+            },
+            {
+                "algo_name": "Bellman Ford",
+                "algo_desc": [
+                    "A shortest path finding algorithm using DP",
+                    "Memorize previous computed value and used in the next computation",
+                    "Single source",
+                    "Can be used to detect negative cycle in the graph"
+                ],
+                "algo_complexity": {
+                    "time": [
+                        "O(VE)"
+                    ],
+                    "aux_space": [
+                        "O(E)"
+                    ]
+                }
+            },
+            {
+                "algo_name": "Floyd-Warshall",
+                "algo_desc": [
+                    "Find the shortest path between all vertices",
+                    "Use a big matrix",
+                    "Can be used to detect negative cycle in the graph using the diagonal properties"
+                ],
+                "algo_complexity": {
+                    "time": [
+                        "O(V^3)"
+                    ],
+                    "aux_space": [
+                        "O(V^2)"
+                    ]
+                }
+            }
+        ],
+        "algo_notes": [
+            ""
+        ]
+    },
+    {
+        "algo_type": "Graph (Minimum Spanning Tree)",
+        "algos": [
+            {
+                "algo_name": "Prim’s Algorithm",
+                "algo_desc": [
+                    "Almost the same as Dijkstra",
+                    "Grow of Tree",
+                    "Using Greedy approach to prioritize the minimum reachable vertices"
+                ],
+                "algo_complexity": {
+                    "time": [
+                        "O(E log V)"
+                    ],
+                    "aux_space": [
+                        "O(E)"
+                    ]
+                }
+            },
+            {
+                "algo_name": "Kruskal’s Algorithm",
+                "algo_desc": [
+                    "Merge of Tree",
+                    "Finding the minimum edges and merge it into a tree"
+                ],
+                "algo_complexity": {
+                    "time": [
+                        "O(E log E)"
+                    ],
+                    "aux_space": [
+                        "O(V log V)"
+                    ]
+                }
+            }
+        ],
+        "algo_notes": [
+            "Minimum spanning tree is not unique but it will still remain the minimum property"
+        ]
+    }
+]
